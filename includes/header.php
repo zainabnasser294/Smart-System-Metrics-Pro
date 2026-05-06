@@ -172,6 +172,27 @@ $show_sidebar = isset($_SESSION['user_id']);
         <i class="fas fa-envelope me-2"></i> Contact
     </a>
 
+  
+
+    <a href="contact.php" class="nav-link <?php echo ($current_page == 'contact.php')?'active':''; ?>">
+        <i class="fas fa-envelope me-2"></i> Contact
+    </a>
+
+   
+    <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'analyst'): ?>
+        <hr class="mx-4 my-3" style="border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="px-4 mb-2 small fw-bold text-muted">ANALYST PANEL</div>
+
+        <a href="view_metrics.php" class="nav-link <?php echo ($current_page == 'view_metrics.php')?'active':''; ?>">
+            <i class="fas fa-chart-line me-2"></i> System Metrics
+        </a>
+        <a href="view_customer_dashboard.php" class="nav-link <?php echo ($current_page == 'view_customer_dashboard.php')?'active':''; ?>">
+            <i class="fas fa-desktop me-2"></i> Live Monitoring
+        </a>
+    <?php endif; ?>
+
+
+     
     <!-- ADMIN -->
     <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
 

@@ -20,11 +20,15 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $userData['username'];
             $_SESSION['role'] = $userData['role']; 
 
-            if ($userData['role'] === 'admin') {
-                header("Location: admin_dashboard.php");
-            } else {
-                header("Location: dashboard.php");
-            }
+          if ($userData['role'] === 'admin') {
+    header("Location: admin_dashboard.php");
+} elseif ($userData['role'] === 'analyst') {
+    
+    header("Location: view_metrics.php"); 
+} else {
+    
+    header("Location: dashboard.php");
+}
             exit();
         } else {
             $error = "Invalid Password.";
